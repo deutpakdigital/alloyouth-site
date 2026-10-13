@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { rich, useI18n } from '../i18n/I18nProvider.jsx'
 
-const EMAIL = 'info@allouyouth.ly'
+const EMAIL = 'hello@alloyouth.com'
 const CONTACTS = [
-  { name: 'Kamal Alhajeen', role: 'generalManager', phone: '+218 91-2141648', tel: '+218912141648' },
-  { name: 'Ezedin Alhajeen', role: 'businessDevelopment', phone: '+218 93-4500019', tel: '+218934500019' },
+  { role: 'generalManager', phone: '+218 91-2141648', tel: '+218912141648' },
+  { role: 'businessDevelopment', phone: '+218 93-4500019', tel: '+218934500019' },
 ]
 const SOCIALS = [
   { key: 'facebook', href: 'https://www.facebook.com/profile.php?id=61593878300369' },
@@ -63,7 +63,7 @@ export default function StorySlide({ video = '/assets/promo1.mp4', playbackRate 
             </li>
             {CONTACTS.map((c) => (
               <li key={c.tel}>
-                {t.footer.contactLabel(c.name, t.footer.roles[c.role])}:{' '}
+                {t.footer.contactLabel(t.footer.names[c.role], t.footer.roles[c.role])}:{' '}
                 <a href={`tel:${c.tel}`} dir="ltr">
                   {c.phone}
                 </a>

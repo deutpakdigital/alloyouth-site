@@ -64,6 +64,10 @@ export default {
     addressLabel: 'Address',
     address: 'Msallata City - towards Tarhuna City, 1 km',
     emailLabel: 'Email',
+    names: {
+      generalManager: 'Kamal Alhajeen',
+      businessDevelopment: 'Ezedin Alhajeen',
+    },
     roles: {
       generalManager: 'General Manager',
       businessDevelopment: 'International Business Development Manager',

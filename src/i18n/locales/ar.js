@@ -64,6 +64,10 @@ export default {
     addressLabel: 'العنوان',
     address: 'مدينة مسلاتة - باتجاه مدينة ترهونة، 1 كم',
     emailLabel: 'البريد الإلكتروني',
+    names: {
+      generalManager: 'كمال الهجين',
+      businessDevelopment: 'عزالدين الهجين',
+    },
     roles: {
       generalManager: 'المدير العام',
       businessDevelopment: 'مدير تطوير الأعمال الدولية',
