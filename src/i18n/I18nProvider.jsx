@@ -10,22 +10,18 @@ export const LANGUAGES = [
 ]
 
 const STORAGE_KEY = 'alloyouth-lang'
+const DEFAULT_LANG = 'ar'
 const byCode = Object.fromEntries(LANGUAGES.map((l) => [l.code, l]))
 
-// Saved choice first, then the browser's preferred languages, then English.
+// Saved choice first, otherwise Arabic.
 function detectInitialLang() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved && byCode[saved]) return saved
   } catch {
-    // Storage can be blocked (private mode); fall through to detection.
+    // Storage can be blocked (private mode); fall back to the default.
   }
-  const prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]
-  for (const pref of prefs) {
-    const code = (pref || '').slice(0, 2).toLowerCase()
-    if (byCode[code]) return code
-  }
-  return 'en'
+  return DEFAULT_LANG
 }
 
 const I18nContext = createContext(null)

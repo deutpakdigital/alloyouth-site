@@ -52,7 +52,14 @@ export default {
   },
   footer: {
     followUs: 'Follow Us',
-    facebook: 'Facebook',
+    socials: {
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      youtube: 'YouTube',
+      pinterest: 'Pinterest',
+      x: 'X',
+      email: 'Email',
+    },
     contactHeading: 'Contact Information',
     addressLabel: 'Address',
     address: 'Msallata City - towards Tarhuna City, 1 km',

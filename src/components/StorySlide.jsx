@@ -6,6 +6,14 @@ const CONTACTS = [
   { name: 'Kamal Alhajeen', role: 'generalManager', phone: '+218 91-2141648', tel: '+218912141648' },
   { name: 'Ezedin Alhajeen', role: 'businessDevelopment', phone: '+218 93-4500019', tel: '+218934500019' },
 ]
+const SOCIALS = [
+  { key: 'facebook', href: 'https://www.facebook.com/profile.php?id=61593878300369' },
+  { key: 'instagram', href: 'https://www.instagram.com/alloyouthco/' },
+  { key: 'youtube', href: 'https://www.youtube.com/@alloyouthco' },
+  { key: 'pinterest', href: 'https://www.pinterest.com/alloyouthco/' },
+  { key: 'x', href: 'https://x.com/alloyouthco' },
+  { key: 'email', href: 'mailto:alloyouthco@gmail.com' },
+]
 
 export default function StorySlide({ video = '/assets/promo1.mp4', playbackRate = 1 }) {
   const { t } = useI18n()
@@ -30,14 +38,18 @@ export default function StorySlide({ video = '/assets/promo1.mp4', playbackRate 
       <footer className="story-footer">
         <div className="footer-col footer-col--social">
           <h4>{t.footer.followUs}</h4>
-          <a
-            className="btn-link"
-            href="https://www.facebook.com/alloyouthfoodcompany/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t.footer.facebook}
-          </a>
+          <ul>
+            {SOCIALS.map((s) => (
+              <li key={s.key}>
+                <a
+                  href={s.href}
+                  {...(s.href.startsWith('mailto:') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+                >
+                  {t.footer.socials[s.key]}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="footer-col footer-col--contact">

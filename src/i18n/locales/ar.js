@@ -52,7 +52,14 @@ export default {
   },
   footer: {
     followUs: 'تابعونا',
-    facebook: 'فيسبوك',
+    socials: {
+      facebook: 'فيسبوك',
+      instagram: 'إنستغرام',
+      youtube: 'يوتيوب',
+      pinterest: 'بينتريست',
+      x: 'إكس',
+      email: 'البريد الإلكتروني',
+    },
     contactHeading: 'معلومات التواصل',
     addressLabel: 'العنوان',
     address: 'مدينة مسلاتة - باتجاه مدينة ترهونة، 1 كم',

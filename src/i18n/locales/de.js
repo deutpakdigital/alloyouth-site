@@ -52,7 +52,14 @@ export default {
   },
   footer: {
     followUs: 'Folgen Sie uns',
-    facebook: 'Facebook',
+    socials: {
+      facebook: 'Facebook',
+      instagram: 'Instagram',
+      youtube: 'YouTube',
+      pinterest: 'Pinterest',
+      x: 'X',
+      email: 'E-Mail',
+    },
     contactHeading: 'Kontakt',
     addressLabel: 'Adresse',
     address: 'Msallata – Richtung Tarhuna, 1 km',
