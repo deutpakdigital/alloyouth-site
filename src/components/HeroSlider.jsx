@@ -3,7 +3,9 @@ import gsap from 'gsap'
 import VideoSlide from './VideoSlide.jsx'
 import SubSlider from './SubSlider.jsx'
 import StorySlide from './StorySlide.jsx'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 import { brands } from '../data/brands.js'
+import { useI18n } from '../i18n/I18nProvider.jsx'
 
 const HERO_VIDEO = '/assets/promo.mp4'
 const HERO_IMAGE = ''
@@ -15,6 +17,7 @@ const SLIDE_DURATION = 1.1
 const SUB_LOCK_MS = 900
 
 export default function HeroSlider({ onOpenGallery, initialSlide = 0 }) {
+  const { t } = useI18n()
   const [current, setCurrent] = useState(initialSlide)
   const [subIndex, setSubIndex] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -187,13 +190,13 @@ export default function HeroSlider({ onOpenGallery, initialSlide = 0 }) {
     <div className={`hero ${current === SUB_SLIDE_INDEX ? 'hero--on-sub' : ''}`}>
       <header className={`site-header ${menuOpen ? 'nav-menu-is-open' : ''}`}>
         <div className="logo">
-          <img src="/assets/logo_en.png" alt="Alloyouth Grocery Store" />
+          <img src="/assets/logo_en.png" alt={t.meta.logoAlt} />
         </div>
 
         <nav className="site-nav">
-          <a href="#" onClick={navClick(0)}>Home</a>
-          <a href="#" onClick={navClick(2)}>Our Story</a>
-          <a href="#" onClick={navClick(1)}>Products</a>
+          <a href="#" onClick={navClick(0)}>{t.nav.home}</a>
+          <a href="#" onClick={navClick(2)}>{t.nav.story}</a>
+          <a href="#" onClick={navClick(1)}>{t.nav.products}</a>
           <a
             href="#gallery"
             onClick={(e) => {
@@ -201,14 +204,16 @@ export default function HeroSlider({ onOpenGallery, initialSlide = 0 }) {
               onOpenGallery && onOpenGallery()
             }}
           >
-            Gallery
+            {t.nav.gallery}
           </a>
         </nav>
+
+        <LanguageSwitcher className="lang-switch--header" />
 
         <button
           className={`navball-btn ${menuOpen ? 'is-active' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={t.nav.toggleMenu}
         >
           <span className="navball-dot" />
           <span className="navball-dot" />
@@ -217,9 +222,9 @@ export default function HeroSlider({ onOpenGallery, initialSlide = 0 }) {
 
         {menuOpen && (
           <div className="navball-menu">
-            <a href="#" onClick={menuClick(0)}>Home</a>
-            <a href="#" onClick={menuClick(1)}>Products</a>
-            <a href="#" onClick={menuClick(2)}>Our Story</a>
+            <a href="#" onClick={menuClick(0)}>{t.nav.home}</a>
+            <a href="#" onClick={menuClick(1)}>{t.nav.products}</a>
+            <a href="#" onClick={menuClick(2)}>{t.nav.story}</a>
             <a
               href="#gallery"
               onClick={(e) => {
@@ -228,8 +233,9 @@ export default function HeroSlider({ onOpenGallery, initialSlide = 0 }) {
                 onOpenGallery && onOpenGallery()
               }}
             >
-              Gallery
+              {t.nav.gallery}
             </a>
+            <LanguageSwitcher className="lang-switch--menu" onSelect={() => setMenuOpen(false)} />
           </div>
         )}
       </header>

@@ -1,6 +1,8 @@
 import { useRef } from 'react'
+import { useI18n } from '../i18n/I18nProvider.jsx'
 
 export default function VideoSlide({ video, image }) {
+  const { t } = useI18n()
   const videoRef = useRef(null)
   const hasVideo = !!video
   const hasImage = !!image
@@ -31,12 +33,8 @@ export default function VideoSlide({ video, image }) {
 
       {hasVideo ? (
         <div className="video-overlay">
-          <h1 className="video-title">Alloyouth</h1>
-          <p className="video-subtitle">
-            Bringing the world's finest chocolates, premium teas, and quality foods closer to you.
-            With decades of experience and a commitment to international standards, we deliver
-            authentic taste, exceptional quality, and trusted products to every home.
-          </p>
+          <h1 className="video-title">{t.hero.title}</h1>
+          <p className="video-subtitle">{t.hero.subtitle}</p>
         </div>
       ) : null}
     </section>

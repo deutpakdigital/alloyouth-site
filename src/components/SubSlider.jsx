@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { useI18n } from '../i18n/I18nProvider.jsx'
 
 export default function SubSlider({ items = [], index = 0, onChange }) {
+  const { t } = useI18n()
   const stackRef = useRef(null)
   const prevIndex = useRef(index)
   const isFirstRun = useRef(true)
@@ -93,7 +95,7 @@ export default function SubSlider({ items = [], index = 0, onChange }) {
               </div>
               <div className="sub-info">
                 <h3 className="sub-title">{item.title}</h3>
-                {item.text.split('\n\n').map((paragraph, j) => (
+                {(t.brands[item.id] || []).map((paragraph, j) => (
                   <p key={j} className="sub-text">
                     {paragraph}
                   </p>
@@ -109,7 +111,7 @@ export default function SubSlider({ items = [], index = 0, onChange }) {
               key={i}
               className={`sub-dot ${i === index ? 'is-active' : ''}`}
               onClick={() => onChange(i)}
-              aria-label={`Go to sub-slide ${i + 1}`}
+              aria-label={t.products.goToSlide(i + 1)}
             />
           ))}
         </div>

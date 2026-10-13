@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { loadGallery } from '../utils/galleryLoader.js'
+import { useI18n } from '../i18n/I18nProvider.jsx'
+import LanguageSwitcher from './LanguageSwitcher.jsx'
 
 export default function Gallery({ onNavigateToSlide }) {
+  const { t } = useI18n()
   const [activeBrand, setActiveBrand] = useState('all')
   const [typeFilter, setTypeFilter] = useState('all')
   const [lightboxItem, setLightboxItem] = useState(null)
@@ -89,6 +92,9 @@ export default function Gallery({ onNavigateToSlide }) {
     else if (dragDelta.current > 35) prev()
   }
 
+  // Brand names come from folder names; only the built-in "Featured" group is translated.
+  const brandLabel = (name) => (name === 'Featured' ? t.gallery.featured : name)
+
   const hasImages = useMemo(() => gallery.allItems.some((i) => i.type === 'image'), [gallery])
   const hasVideos = useMemo(() => gallery.allItems.some((i) => i.type === 'video'), [gallery])
 
@@ -107,20 +113,22 @@ export default function Gallery({ onNavigateToSlide }) {
 
       <header className={`site-header gallery-header-fixed ${menuOpen ? 'nav-menu-is-open' : ''}`}>
         <div className="logo" onClick={() => onNavigateToSlide(0)} style={{ cursor: 'pointer' }}>
-          <img src="/assets/logo_en.png" alt="Alloyouth Grocery Store" />
+          <img src="/assets/logo_en.png" alt={t.meta.logoAlt} />
         </div>
 
         <nav className="site-nav">
-          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(0) }}>Home</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(2) }}>Our Story</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(1) }}>Products</a>
-          <a href="#gallery" className="is-nav-active">Gallery</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(0) }}>{t.nav.home}</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(2) }}>{t.nav.story}</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); onNavigateToSlide(1) }}>{t.nav.products}</a>
+          <a href="#gallery" className="is-nav-active">{t.nav.gallery}</a>
         </nav>
+
+        <LanguageSwitcher className="lang-switch--header" />
 
         <button
           className={`navball-btn ${menuOpen ? 'is-active' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle navigation menu"
+          aria-label={t.nav.toggleMenu}
         >
           <span className="navball-dot" />
           <span className="navball-dot" />
@@ -129,18 +137,19 @@ export default function Gallery({ onNavigateToSlide }) {
 
         {menuOpen && (
           <div className="navball-menu">
-            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(0) }}>Home</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(1) }}>Products</a>
-            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(2) }}>Our Story</a>
-            <a href="#gallery" onClick={(e) => { e.preventDefault(); setMenuOpen(false) }}>Gallery</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(0) }}>{t.nav.home}</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(1) }}>{t.nav.products}</a>
+            <a href="#" onClick={(e) => { e.preventDefault(); setMenuOpen(false); onNavigateToSlide(2) }}>{t.nav.story}</a>
+            <a href="#gallery" onClick={(e) => { e.preventDefault(); setMenuOpen(false) }}>{t.nav.gallery}</a>
+            <LanguageSwitcher className="lang-switch--menu" onSelect={() => setMenuOpen(false)} />
           </div>
         )}
       </header>
 
       <main className="gallery-flow-layout">
         <div className="gallery-flow-header">
-          <h1>Product Gallery</h1>
-          <p>Cinematic 3D showcase — drag, swipe or use arrows to explore</p>
+          <h1>{t.gallery.title}</h1>
+          <p>{t.gallery.subtitle}</p>
         </div>
 
         <div className="gallery-flow-controls">
@@ -150,7 +159,7 @@ export default function Gallery({ onNavigateToSlide }) {
                 className={`gallery-tab ${activeBrand === 'all' ? 'is-active' : ''}`}
                 onClick={() => setActiveBrand('all')}
               >
-                All Brands ({gallery.totalCount})
+                {t.gallery.allBrands} ({gallery.totalCount})
               </button>
             )}
             {brands.map((brand) => (
@@ -159,7 +168,7 @@ export default function Gallery({ onNavigateToSlide }) {
                 className={`gallery-tab ${activeBrand === brand.key ? 'is-active' : ''}`}
                 onClick={() => setActiveBrand(brand.key)}
               >
-                {brand.displayName} ({brand.items.length})
+                {brandLabel(brand.displayName)} ({brand.items.length})
               </button>
             ))}
           </div>
@@ -170,19 +179,19 @@ export default function Gallery({ onNavigateToSlide }) {
                 className={`gallery-type-btn ${typeFilter === 'all' ? 'is-active' : ''}`}
                 onClick={() => setTypeFilter('all')}
               >
-                All
+                {t.gallery.all}
               </button>
               <button
                 className={`gallery-type-btn ${typeFilter === 'image' ? 'is-active' : ''}`}
                 onClick={() => setTypeFilter('image')}
               >
-                📷 Images
+                📷 {t.gallery.images}
               </button>
               <button
                 className={`gallery-type-btn ${typeFilter === 'video' ? 'is-active' : ''}`}
                 onClick={() => setTypeFilter('video')}
               >
-                🎥 Videos
+                🎥 {t.gallery.videos}
               </button>
             </div>
           )}
@@ -191,6 +200,7 @@ export default function Gallery({ onNavigateToSlide }) {
         {items.length > 0 ? (
           <div
             className="flow-stage-container"
+            dir="ltr"
             ref={stageRef}
             onWheel={onWheel}
             onMouseDown={onMouseDown}
@@ -201,10 +211,10 @@ export default function Gallery({ onNavigateToSlide }) {
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
           >
-            <button className="flow-arrow flow-arrow--prev" onClick={prev} aria-label="Previous image">
+            <button className="flow-arrow flow-arrow--prev" onClick={prev} aria-label={t.gallery.previous}>
               ‹
             </button>
-            <button className="flow-arrow flow-arrow--next" onClick={next} aria-label="Next image">
+            <button className="flow-arrow flow-arrow--next" onClick={next} aria-label={t.gallery.next}>
               ›
             </button>
 
@@ -256,7 +266,7 @@ export default function Gallery({ onNavigateToSlide }) {
 
                     {isActive && (
                       <div className="flow-caption">
-                        <span className="flow-caption-brand">{item.brandName}</span>
+                        <span className="flow-caption-brand">{brandLabel(item.brandName)}</span>
                         {item.subcategory && <span className="flow-caption-sub">{item.subcategory}</span>}
                         <span className="flow-caption-title">{item.title}</span>
                       </div>
@@ -276,7 +286,7 @@ export default function Gallery({ onNavigateToSlide }) {
       {lightboxItem && (
         <div className="lightbox-overlay" onClick={() => setLightboxItem(null)}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setLightboxItem(null)}>
+            <button className="lightbox-close" onClick={() => setLightboxItem(null)} aria-label={t.gallery.close}>
               ✕
             </button>
             {lightboxItem.type === 'image' ? (
@@ -285,7 +295,7 @@ export default function Gallery({ onNavigateToSlide }) {
               <video src={lightboxItem.url} controls autoPlay className="lightbox-media" />
             )}
             <div className="lightbox-caption">
-              <h3>{lightboxItem.brandName}</h3>
+              <h3>{brandLabel(lightboxItem.brandName)}</h3>
               {lightboxItem.subcategory && <p className="lightbox-sub">{lightboxItem.subcategory}</p>}
               <p>{lightboxItem.title}</p>
             </div>
