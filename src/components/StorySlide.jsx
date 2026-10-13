@@ -70,7 +70,12 @@ export default function StorySlide({
           <ul>
             <li>Address: Msallata City - towards Tarhuna City, 1 km</li>
             <li>Email: info@allouyouth.ly</li>
-            <li>Phone: +218 92-3055396</li>
+            <li>
+              Kamal Alhajeen, General Manager: <a href="tel:+218912141648">+218 91-2141648</a>
+            </li>
+            <li>
+              Ezedin Alhajeen: <a href="tel:+218934500019">+218 93-4500019</a>
+            </li>
           </ul>
         </div>
 
