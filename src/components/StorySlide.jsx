@@ -12,7 +12,6 @@ const SOCIALS = [
   { key: 'youtube', href: 'https://www.youtube.com/@alloyouthco' },
   { key: 'pinterest', href: 'https://www.pinterest.com/alloyouthco/' },
   { key: 'x', href: 'https://x.com/alloyouthco' },
-  { key: 'email', href: 'mailto:alloyouthco@gmail.com' },
 ]
 
 export default function StorySlide({ video = '/assets/promo1.mp4', playbackRate = 1 }) {
@@ -41,10 +40,7 @@ export default function StorySlide({ video = '/assets/promo1.mp4', playbackRate 
           <ul>
             {SOCIALS.map((s) => (
               <li key={s.key}>
-                <a
-                  href={s.href}
-                  {...(s.href.startsWith('mailto:') ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
-                >
+                <a href={s.href} target="_blank" rel="noopener noreferrer">
                   {t.footer.socials[s.key]}
                 </a>
               </li>

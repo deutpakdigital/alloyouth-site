@@ -58,7 +58,6 @@ export default {
       youtube: 'YouTube',
       pinterest: 'Pinterest',
       x: 'X',
-      email: 'Email',
     },
     contactHeading: 'Contact Information',
     addressLabel: 'Address',

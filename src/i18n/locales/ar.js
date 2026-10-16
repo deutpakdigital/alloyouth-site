@@ -58,7 +58,6 @@ export default {
       youtube: 'يوتيوب',
       pinterest: 'بينتريست',
       x: 'إكس',
-      email: 'البريد الإلكتروني',
     },
     contactHeading: 'معلومات التواصل',
     addressLabel: 'العنوان',
