@@ -1,5 +1,5 @@
 import { rich, useI18n } from '../i18n/I18nProvider.jsx'
-import { CONTACTS, EMAIL, VIDEOS, mapUrl } from '../data/site.js'
+import { BRAND_VIDEO, CONTACTS, EMAIL, mapUrl } from '../data/site.js'
 
 export default function Story() {
   const { t, lang } = useI18n()
@@ -26,7 +26,7 @@ export default function Story() {
     <>
       {/* The original site's story slide: the full story on glass over the video. */}
       <section className="story-hero">
-        <video className="hero-video" src={VIDEOS.story} autoPlay muted loop playsInline aria-hidden="true" />
+        <video className="hero-video" src={BRAND_VIDEO.src} autoPlay muted loop playsInline aria-hidden="true" />
         <div className="container story-hero-inner">
           <article className="story-panel">
             <h1>{t.story.eyebrow}</h1>

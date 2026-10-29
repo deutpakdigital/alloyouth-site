@@ -1,6 +1,6 @@
 import { useI18n } from '../i18n/I18nProvider.jsx'
 import { Link } from '../router.jsx'
-import { BRANDS, CONTACTS, EMAIL, GALLERY_VIDEOS, VIDEOS, YOUTUBE } from '../data/site.js'
+import { BRAND_VIDEO, BRANDS, CONTACTS, EMAIL, GALLERY_VIDEOS, YOUTUBE } from '../data/site.js'
 import { ArrowIcon } from '../components/Icons.jsx'
 import VideoCard from '../components/VideoCard.jsx'
 import BrandSlides from '../components/BrandSlides.jsx'
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <section className="hero hero--full">
-        <video className="hero-video" src={VIDEOS.hero} autoPlay muted loop playsInline aria-hidden="true" />
+        <video className="hero-video" src={BRAND_VIDEO.src} autoPlay muted loop playsInline aria-hidden="true" />
         <div className="container hero-inner hero-inner--center">
           <h1 className="hero-brand">{t.home.brandTitle}</h1>
           <p className="hero-tagline">{t.home.title}</p>
@@ -79,8 +79,8 @@ export default function Home() {
           <div className="split">
             <VideoCard
               className="video-card--story"
-              src={VIDEOS.story}
-              label={`${t.videos.story} · 1:09`}
+              src={BRAND_VIDEO.src}
+              label={`${t.videos.brand} · ${BRAND_VIDEO.length}`}
               playLabel={t.home.playStory}
             />
             <div className="story-teaser">

@@ -57,7 +57,6 @@ export default {
   ],
   videos: {
     brand: 'فيلم الشركة',
-    story: 'قصتنا',
     play: (title) => `تشغيل ${title}`,
   },
   products: {

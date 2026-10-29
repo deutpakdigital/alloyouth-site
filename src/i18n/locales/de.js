@@ -57,7 +57,6 @@ export default {
   ],
   videos: {
     brand: 'Markenfilm',
-    story: 'Unsere Geschichte',
     play: (title) => `${title} abspielen`,
   },
   products: {
