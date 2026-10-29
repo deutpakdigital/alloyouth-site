@@ -1,39 +1,34 @@
-import { useEffect, useState } from 'react'
-import HeroSlider from './components/HeroSlider.jsx'
-import Gallery from './components/Gallery.jsx'
+import { useEffect } from 'react'
+import { BRANDS } from './data/site.js'
+import { scrollToRoute, useRoute } from './router.jsx'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import Products from './pages/Products.jsx'
+import Brand from './pages/Brand.jsx'
+import Story from './pages/Story.jsx'
 
 export default function App() {
-  const [page, setPage] = useState('home')
-  const [initialSlide, setInitialSlide] = useState(0)
+  const route = useRoute()
+  const brand = route.page === 'brand' && BRANDS.find((b) => b.id === route.brandId)
+  // An unknown brand id falls back to the full brand list.
+  const page = route.page === 'brand' && !brand ? 'products' : route.page
 
+  // Wait for the web font so a late font swap doesn't shift the scroll target.
   useEffect(() => {
-    const syncFromHash = () => {
-      const hash = window.location.hash.replace('#', '')
-      setPage(hash === 'gallery' ? 'gallery' : 'home')
-    }
-    syncFromHash()
-    window.addEventListener('hashchange', syncFromHash)
-    return () => window.removeEventListener('hashchange', syncFromHash)
-  }, [])
-
-  const openGallery = () => {
-    window.location.hash = 'gallery'
-    setPage('gallery')
-  }
-
-  const navigateToSlide = (slide = 0) => {
-    setInitialSlide(slide)
-    window.location.hash = ''
-    setPage('home')
-  }
+    document.fonts.ready.then(() => scrollToRoute(route))
+  }, [route])
 
   return (
-    <main className="app">
-      {page === 'gallery' ? (
-        <Gallery onNavigateToSlide={navigateToSlide} />
-      ) : (
-        <HeroSlider onOpenGallery={openGallery} initialSlide={initialSlide} />
-      )}
-    </main>
+    <div className="site">
+      <Header route={route} />
+      <main>
+        {page === 'home' && <Home />}
+        {page === 'products' && <Products />}
+        {page === 'brand' && <Brand key={brand.id} brand={brand} />}
+        {page === 'story' && <Story />}
+      </main>
+      <Footer />
+    </div>
   )
 }
