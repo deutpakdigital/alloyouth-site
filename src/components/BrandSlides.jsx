@@ -121,7 +121,11 @@ export default function BrandSlides() {
                   <span className="label label--on-dark">{copy.category}</span>
                   <h2 className="brand-slide-name">{b.name}</h2>
                 </div>
-                <p className="spotlight-text">{copy.spotlight}</p>
+                <div className="brand-slide-text">
+                  {copy.description.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
                 <dl className="spotlight-facts">
                   {copy.facts.map((f) => (
                     <div key={f.k}>
@@ -130,14 +134,9 @@ export default function BrandSlides() {
                     </div>
                   ))}
                 </dl>
-                <div className="btn-row">
-                  <Link href={`#/products/${b.id}`} className="btn btn--accent">
-                    {t.common.viewBrand}
-                  </Link>
-                  <a href={b.site} target="_blank" rel="noopener noreferrer" className="btn btn--outline-muted">
-                    {t.common.officialSite}
-                  </a>
-                </div>
+                <Link href={`#/products/${b.id}`} className="btn btn--accent">
+                  {t.common.viewBrand}
+                </Link>
               </div>
             </div>
           )

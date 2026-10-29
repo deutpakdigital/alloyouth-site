@@ -27,7 +27,6 @@ export const BRANDS = [
     logo: '/assets/roshen-logo.png',
     lightLogo: true,
     site: 'https://roshen.com/en',
-    domain: 'roshen.com',
   },
   {
     id: 'tcboy',
@@ -36,7 +35,6 @@ export const BRANDS = [
     image: '/assets/tcboy.png',
     logo: '/assets/tcboy-logo.png',
     site: 'https://tcboy.com/en',
-    domain: 'tcboy.com',
   },
   {
     id: 'mabroc',
@@ -45,7 +43,6 @@ export const BRANDS = [
     image: '/assets/mabroc.png',
     logo: '/assets/mabroc_logo.png',
     site: 'https://mabrocteas.com/',
-    domain: 'mabrocteas.com',
   },
 ]
 

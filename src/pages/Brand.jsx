@@ -41,12 +41,9 @@ export default function Brand({ brand }) {
             </ul>
           </div>
           <div className="btn-row">
-            <Link href="#/contact" className="btn btn--dark btn--lg btn--grow">
+            <Link href="#/contact" className="btn btn--dark btn--lg">
               {t.brand.wholesale}
             </Link>
-            <a href={brand.site} target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark btn--lg btn--grow">
-              {t.brand.visit(brand.domain)}
-            </a>
           </div>
         </div>
       </section>

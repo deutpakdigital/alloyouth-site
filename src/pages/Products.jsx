@@ -44,7 +44,11 @@ export default function Products() {
                   <span className="label">{t.products.filters[b.filter]}</span>
                 </div>
                 <h2 className="product-row-name">{b.name}</h2>
-                <p className="product-row-text">{copy.summary}</p>
+                <div className="product-row-text">
+                  {copy.description.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
                 <ul aria-label={t.products.highlights} className="tag-list">
                   {copy.tags.map((tag) => (
                     <li key={tag}>{tag}</li>
@@ -54,9 +58,6 @@ export default function Products() {
                   <Link href={`#/products/${b.id}`} className="btn btn--dark btn--md">
                     {t.common.viewBrand}
                   </Link>
-                  <a href={b.site} target="_blank" rel="noopener noreferrer" className="btn btn--outline-dark btn--md">
-                    {t.common.officialSite}
-                  </a>
                 </div>
               </div>
             </article>

@@ -16,7 +16,6 @@ export default {
   },
   common: {
     viewBrand: 'Zur Marke',
-    officialSite: 'Offizielle Website ↗',
     call: 'Anrufen',
     sendEnquiry: 'Anfrage senden',
   },
@@ -81,7 +80,6 @@ export default {
     productRange: 'Produktsortiment',
     highlights: 'Highlights',
     wholesale: 'Großhandelsanfrage',
-    visit: (domain) => `${domain} besuchen ↗`,
     more: 'Weitere Marken',
     allBrands: 'Alle Marken →',
     viewBrand: 'Zur Marke →',
@@ -90,15 +88,11 @@ export default {
     roshen: {
       category: 'Süßwaren',
       blurb: 'Schokoladen- und Geleesüßigkeiten, Karamellbonbons, Toffees, Schokoriegel, Kekse, Waffeln, Biskuitkuchen, Marshmallows und mehr.',
-      spotlight:
-        'Eine internationale Süßwarenmarke mit Schokoladen- und Geleesüßigkeiten, Karamellbonbons, Toffees, Schokoriegeln, Keksen, Waffeln, Biskuitkuchen, Marshmallows, Fruchtgelee und Torten – hergestellt aus sorgfältig ausgewählten Zutaten und mit jahrzehntelanger Erfahrung.',
       facts: [
         { k: 'Kategorie', v: 'Süßwaren' },
         { k: 'Sortiment', v: 'Von Bonbons bis Torten' },
         { k: 'Reichweite', v: 'Weltweit' },
       ],
-      summary:
-        'ROSHEN ist eine internationale Süßwarenmarke. Sorgfältig ausgewählte, hochwertige Zutaten, Originalrezepturen und jahrzehntelange Erfahrung stecken in jedem Produkt – von klassischen Lieblingen bis zu modernen Kreationen.',
       tags: ['Schokoladen- & Geleesüßigkeiten', 'Karamell & Toffees', 'Schokoriegel', 'Kekse & Waffeln', 'Biskuitkuchen & Torten', 'Marshmallows & Fruchtgelee'],
       range: ['Schokoladensüßigkeiten', 'Geleesüßigkeiten', 'Karamellbonbons', 'Toffees', 'Schokoriegel', 'Kekse', 'Waffeln', 'Biskuitkuchen', 'Marshmallows', 'Fruchtgelee', 'Torten'],
       more: 'Internationale Süßwaren – von Schokoladensüßigkeiten und Waffeln bis zu Biskuitkuchen.',
@@ -111,15 +105,11 @@ export default {
     tcboy: {
       category: 'Fischkonserven',
       blurb: 'Seit den 1990er-Jahren ein vertrauter Name in malaysischen Haushalten – nahrhafte, praktische Fischkonserven für Familien überall.',
-      spotlight:
-        'Seit den 1990er-Jahren ein vertrauter Name in malaysischen Haushalten – aufgebaut auf Qualität, authentischem Geschmack und gutem Preis-Leistungs-Verhältnis: köstliche, nahrhafte und praktische Fischkonserven.',
       facts: [
         { k: 'Herkunft', v: 'Malaysia' },
         { k: 'Seit', v: '1990er' },
         { k: 'Kategorie', v: 'Fischkonserven' },
       ],
-      summary:
-        'Stolz in Malaysia verwurzelt, wurde TC Boy gegründet, um köstliche, nahrhafte und praktische Fischkonserven für Familien überall zugänglich zu machen. Was als lokale Initiative begann, wird heute in ganz Asien und darüber hinaus geschätzt.',
       tags: ['Seit den 1990er-Jahren', 'Verwurzelt in Malaysia', 'Fischkonserven', 'Beliebt in Asien und darüber hinaus'],
       more: 'Nahrhafte, praktische Fischkonserven aus Malaysia – bewährt seit den 1990er-Jahren.',
       description: [
@@ -132,15 +122,11 @@ export default {
     mabroc: {
       category: 'Ceylon-Tee',
       blurb: 'Premium-Ceylon-Tee aus dem Hochland Sri Lankas – seit 1988 mit der Welt geteilt.',
-      spotlight:
-        'Seit 1988 teilt MABROC den feinsten Ceylon-Tee mit der Welt – angebaut auf 9.605 Hektar Teegärten in Sri Lanka und genossen in mehr als 50 Ländern.',
       facts: [
         { k: 'Seit', v: '1988' },
         { k: 'Länder', v: '50+' },
         { k: 'Teefabriken', v: '48' },
       ],
-      summary:
-        'Seit 1988 verfolgt MABROC eine einfache Vision: den feinsten Ceylon-Tee mit der Welt zu teilen. Jährlich werden mehr als 12,5 Millionen Kilogramm Premium-Tee angebaut und in 48 Teefabriken verarbeitet.',
       tags: ['Seit 1988', 'Premium-Ceylon-Tee', '50+ Länder', '9.605 Hektar Teegärten'],
       more: 'Premium-Ceylon-Tee aus Sri Lanka, genossen in mehr als 50 Ländern.',
       description: [

@@ -16,7 +16,6 @@ export default {
   },
   common: {
     viewBrand: 'View brand',
-    officialSite: 'Official website ↗',
     call: 'Call',
     sendEnquiry: 'Send an enquiry',
   },
@@ -81,7 +80,6 @@ export default {
     productRange: 'Product range',
     highlights: 'Highlights',
     wholesale: 'Wholesale enquiry',
-    visit: (domain) => `Visit ${domain} ↗`,
     more: 'More of our brands',
     allBrands: 'All brands →',
     viewBrand: 'View brand →',
@@ -90,15 +88,11 @@ export default {
     roshen: {
       category: 'Confectionery',
       blurb: 'Chocolate and jelly sweets, caramels, toffees, chocolate bars, biscuits, wafers, sponge cakes, marshmallows and more.',
-      spotlight:
-        'An international confectionery brand offering chocolate and jelly sweets, caramels, toffees, chocolate bars, biscuits, wafers, sponge cakes, marshmallows, marmalade, and cakes — made with carefully selected ingredients and decades of expertise.',
       facts: [
         { k: 'Category', v: 'Confectionery' },
         { k: 'Range', v: 'Sweets to cakes' },
         { k: 'Reach', v: 'Worldwide' },
       ],
-      summary:
-        'ROSHEN is an international confectionery brand. Carefully selected, high-quality ingredients, original recipes and decades of confectionery expertise go into every product — from classic favourites to modern creations.',
       tags: ['Chocolate & jelly sweets', 'Caramels & toffees', 'Chocolate bars', 'Biscuits & wafers', 'Sponge cakes & cakes', 'Marshmallows & marmalade'],
       range: ['Chocolate sweets', 'Jelly sweets', 'Caramels', 'Toffees', 'Chocolate bars', 'Biscuits', 'Wafers', 'Sponge cakes', 'Marshmallows', 'Marmalade', 'Cakes'],
       more: 'International confectionery — from chocolate sweets and wafers to sponge cakes.',
@@ -111,15 +105,11 @@ export default {
     tcboy: {
       category: 'Canned seafood',
       blurb: 'A trusted name in Malaysian households since the 1990s — nutritious, convenient canned seafood for families everywhere.',
-      spotlight:
-        'A trusted name in Malaysian households since the 1990s, built on a simple commitment to quality, authentic flavours, and everyday value — delicious, nutritious and convenient canned seafood.',
       facts: [
         { k: 'Origin', v: 'Malaysia' },
         { k: 'Since', v: '1990s' },
         { k: 'Category', v: 'Canned seafood' },
       ],
-      summary:
-        'Proudly rooted in Malaysia, TC Boy was created to make delicious, nutritious, and convenient canned seafood accessible to families everywhere. What began as a local initiative is now enjoyed across Asia and beyond.',
       tags: ['Since the 1990s', 'Rooted in Malaysia', 'Canned seafood', 'Enjoyed across Asia and beyond'],
       more: 'Nutritious, convenient canned seafood from Malaysia, trusted since the 1990s.',
       description: [
@@ -132,15 +122,11 @@ export default {
     mabroc: {
       category: 'Ceylon tea',
       blurb: 'Premium Ceylon tea from the highlands of Sri Lanka, shared with the world since 1988.',
-      spotlight:
-        'Since 1988, MABROC has shared the finest Ceylon tea with the world. Grown across 9,605 hectares of tea gardens in Sri Lanka and enjoyed in more than 50 countries.',
       facts: [
         { k: 'Since', v: '1988' },
         { k: 'Countries', v: '50+' },
         { k: 'Tea factories', v: '48' },
       ],
-      summary:
-        'Since 1988, MABROC has been driven by a simple vision: to share the finest Ceylon tea with the world. More than 12.5 million kilograms of premium tea are grown each year and processed through 48 tea factories.',
       tags: ['Since 1988', 'Premium Ceylon tea', '50+ countries', '9,605 hectares of tea gardens'],
       more: 'Premium Ceylon tea from Sri Lanka, enjoyed in more than 50 countries.',
       description: [
