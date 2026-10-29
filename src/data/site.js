@@ -48,12 +48,10 @@ export const BRANDS = [
 
 export const FILTERS = ['all', 'confectionery', 'seafood', 'tea']
 
-export const VIDEOS = {
-  hero: '/assets/promo.mp4',
-  story: '/assets/promo1.mp4',
-}
+// The site's one video: Home opening, story teaser, gallery and Our Story page.
+export const BRAND_VIDEO = { src: '/assets/promo.mp4', length: '1:07' }
 
-export const GALLERY_VIDEOS = [{ key: 'brand', src: VIDEOS.hero, length: '1:07' }]
+export const GALLERY_VIDEOS = [{ key: 'brand', ...BRAND_VIDEO }]
 
 export const YOUTUBE = 'https://www.youtube.com/@alloyouthco'
 

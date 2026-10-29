@@ -57,7 +57,6 @@ export default {
   ],
   videos: {
     brand: 'Brand film',
-    story: 'Our story',
     play: (title) => `Play ${title}`,
   },
   products: {
